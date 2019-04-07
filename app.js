@@ -1,10 +1,10 @@
 const express = require('express')
 const app = express();
 
-app.use((req, res, next)=>{
-    res.status(200).json({
-        message : "funciona"
-    });
-})
+const productsRoutes = require('./api/rutes/products')
+const ordersRoutes = require('./api/rutes/orders')
+
+app.use('/products', productsRoutes)
+app.use('/orders', ordersRoutes)
 
 module.exports = app;
