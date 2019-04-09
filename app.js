@@ -2,9 +2,17 @@ const express = require('express')
 const app = express();
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
+const mongoose = require('mongoose')
 
 const productsRoutes = require('./api/rutes/products')
 const ordersRoutes = require('./api/rutes/orders')
+
+
+mongoose.connect('mongodb+srv://calinjavi:'+process.env.MONGO_ATLAS_PW+'@cluster0-532iy.mongodb.net/test?retryWrites=true', 
+                {
+                    useNewUrlParser: true
+                })
+
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({
