@@ -15,6 +15,7 @@ mongoose.connect('mongodb+srv://calinjavi:'+process.env.MONGO_ATLAS_PW+'@cluster
 
 
 app.use(morgan('dev'));
+app.use('/uploads', express.static('uploads'))
 app.use(bodyParser.urlencoded({
     extended: false
 }))
