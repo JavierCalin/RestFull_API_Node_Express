@@ -6,7 +6,7 @@ const mongoose = require('mongoose')
 
 const productsRoutes = require('./api/rutes/products')
 const ordersRoutes = require('./api/rutes/orders')
-
+const userRoutes = require('./api/rutes/user')
 
 mongoose.connect('mongodb+srv://calinjavi:'+process.env.MONGO_ATLAS_PW+'@cluster0-532iy.mongodb.net/test?retryWrites=true', 
                 {
@@ -37,6 +37,7 @@ app.use((req, res, next)=>{
 
 app.use('/products', productsRoutes)
 app.use('/orders', ordersRoutes)
+app.use('/user', userRoutes)
 
 app.use((req,res,next)=>{
     const error = new Error('Not found')
